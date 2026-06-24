@@ -1,0 +1,3 @@
+#!/bin/sh
+# Strip Cursor co-author lines injected by Agent > Attribution.
+sed -i '/cursoragent@cursor\.com/d' "$1"

@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build zip archives
+        run: |
+          chmod +x scripts/build-release.sh
+          TAG="${GITHUB_REF_NAME#v}"
+          ./scripts/build-release.sh "$TAG" dist
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.zip
+          generate_release_notes: false
+          body: |
+            ## G - Proxy v${{ github.ref_name }}
+
+            Скачай архив для своего браузера, распакуй и установи по инструкции в [README](https://github.com/Qerakl/Proxy-plugin#шаг-1--скачать).
+
+            | Браузер | Файл |
+            |---------|------|
+            | Chrome, Яндекс, Brave, Edge | `G-Proxy-chrome-*.zip` |
+            | Firefox | `G-Proxy-firefox-*.zip` |
+
+            Подробнее: [CHANGELOG.md](https://github.com/Qerakl/Proxy-plugin/blob/main/CHANGELOG.md)

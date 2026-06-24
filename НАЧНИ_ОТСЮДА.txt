@@ -3,8 +3,13 @@
 ║         Расширение для прокси в браузере                 ║
 ╚══════════════════════════════════════════════════════════╝
 
-  СКАЧАТЬ:
-  GitHub → Code → Download ZIP → распаковать
+  СКАЧАТЬ (рекомендуется):
+  https://github.com/Qerakl/Proxy-plugin/releases/latest
+
+  Chrome  →  G-Proxy-chrome-v….zip
+  Firefox →  G-Proxy-firefox-v….zip
+
+  Распаковать → установить по инструкции ниже.
 
 
   GOOGLE CHROME (или Яндекс, Brave, Edge):
@@ -12,7 +17,7 @@
   1. chrome://extensions
   2. Режим разработчика — ВКЛ
   3. Загрузить распакованное расширение
-  4. Выбрать папку:  Proxy-plugin/chrome
+  4. Выбрать папку:  chrome  (из архива)
 
   Подробнее:  chrome/README.md
 
@@ -21,9 +26,10 @@
   ─────────────────
   1. about:debugging  →  «Эта Firefox»
   2. Загрузить временное дополнение
-  3. Выбрать файл:  Proxy-plugin/firefox/manifest.json
+  3. Выбрать файл:  firefox/manifest.json  (из архива)
 
   Подробнее:  firefox/README.md
 
 
   Полная инструкция:  README.md
+  История версий:     CHANGELOG.md

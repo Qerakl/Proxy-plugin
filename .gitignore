@@ -4,3 +4,4 @@ Thumbs.db
 *.xpi
 node_modules/
 .env
+dist/

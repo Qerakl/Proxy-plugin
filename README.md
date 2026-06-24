@@ -10,6 +10,12 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/Qerakl/Proxy-plugin/releases/latest"><img src="https://img.shields.io/github/v/release/Qerakl/Proxy-plugin?label=скачать" alt="Release"></a>
+  <img src="https://img.shields.io/github/license/Qerakl/Proxy-plugin" alt="MIT License">
+</p>
+
+<p align="center">
+  <a href="https://github.com/Qerakl/Proxy-plugin/releases/latest">Скачать релиз</a> ·
   <a href="#установка-в-google-chrome">Chrome</a> ·
   <a href="#установка-в-mozilla-firefox">Firefox</a> ·
   <a href="#как-пользоваться">Как пользоваться</a> ·
@@ -41,13 +47,22 @@
 
 ## Шаг 1 — Скачать
 
-1. Открой этот репозиторий на GitHub  
-2. Нажми зелёную кнопку **Code**  
-3. Выбери **Download ZIP**  
-4. Распакуй архив на компьютер (ПКМ → «Извлечь»)  
-5. Открой папку **`Proxy-plugin`**
+### Способ 1 — готовые архивы (рекомендуется)
 
-Внутри увидишь папки `chrome` и `firefox` — **больше ничего выбирать не нужно**, только свою папку по браузеру.
+1. Открой **[Releases](https://github.com/Qerakl/Proxy-plugin/releases/latest)**  
+2. Скачай архив для своего браузера:
+   - **Chrome, Яндекс, Brave, Edge** → `G-Proxy-chrome-v….zip`
+   - **Firefox** → `G-Proxy-firefox-v….zip`
+3. Распакуй архив (ПКМ → «Извлечь»)
+
+Внутри будет папка `chrome` или `firefox` — её и указываешь при установке.
+
+### Способ 2 — весь репозиторий
+
+1. Нажми зелёную кнопку **Code** → **Download ZIP**  
+2. Распакуй и открой папку **`Proxy-plugin`**
+
+Внутри увидишь папки `chrome` и `firefox` — выбери свою по браузеру.
 
 ---
 
@@ -73,7 +88,7 @@ chrome://extensions
 
 ### Шаг 5 — Выбрать папку
 
-Укажи папку **`Proxy-plugin/chrome`** — именно **`chrome`**, не всю `Proxy-plugin`.
+Укажи папку **`chrome`** из распакованного архива (или **`Proxy-plugin/chrome`**, если качал весь репозиторий).
 
 Готово. Иконка **G - Proxy** появится на панели браузера.
 
@@ -104,7 +119,7 @@ about:debugging
 
 ### Шаг 4 — Выбрать файл
 
-В папке **`Proxy-plugin/firefox`** выбери файл **`manifest.json`**.
+В папке **`firefox`** (из архива или репозитория) выбери файл **`manifest.json`**.
 
 > Важно: выбирается **файл** `manifest.json`, а не папка целиком.
 
@@ -166,7 +181,8 @@ Proxy-plugin/
 ├── lib/                 ←  код расширения (для разработчиков)
 ├── icons/               ←  иконки
 ├── docs/                ←  документация для разработчиков
-└── scripts/sync.sh      ←  служебный скрипт
+├── scripts/             ←  sync.sh, build-release.sh
+└── CHANGELOG.md         ←  история версий
 ```
 
 **Обычному пользователю** нужна только папка `chrome/` **или** `firefox/`.
