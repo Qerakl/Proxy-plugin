@@ -4,8 +4,8 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 VERSION="${1:-$(grep -m1 '"version"' "$ROOT/chrome/manifest.json" | sed 's/.*"\([0-9.]*\)".*/\1/')}"
 OUT="${2:-$ROOT/dist}"
-
 mkdir -p "$OUT"
+OUT="$(cd "$OUT" && pwd)"
 rm -f "$OUT/G-Proxy-chrome-v${VERSION}.zip" "$OUT/G-Proxy-firefox-v${VERSION}.zip"
 
 (cd "$ROOT/chrome" && zip -qr "$OUT/G-Proxy-chrome-v${VERSION}.zip" .)
