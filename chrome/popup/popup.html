@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G - Proxy</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="shell">
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+
+    <header class="top">
+      <div class="brand">
+        <img src="../icons/icon48.png" alt="" class="logo" width="40" height="40">
+        <div>
+          <p class="eyebrow">прокси для браузера</p>
+          <h1>G - Proxy</h1>
+        </div>
+      </div>
+      <div class="live-badge" id="statusPill">
+        <span class="live-dot"></span>
+        <span id="statusLabel">ВЫКЛ</span>
+      </div>
+    </header>
+
+    <section class="state-panel" id="statePanel">
+      <div class="state-off" id="stateOff">
+        <h2 class="state-title">Прокси выключен</h2>
+        <p class="state-desc">Браузер работает напрямую</p>
+      </div>
+      <div class="state-on hidden" id="stateOn">
+        <h2 class="state-title">Сейчас подключено</h2>
+        <p class="state-geo" id="stateGeo">—</p>
+        <p class="state-host" id="stateHost">—</p>
+        <p class="state-ip" id="stateIp">—</p>
+        <p class="state-scope" id="stateScope">—</p>
+        <button type="button" class="btn-disconnect" id="disconnectBtn">Отключить</button>
+      </div>
+    </section>
+
+    <section class="paste-zone">
+      <h2 class="form-title" id="formTitle">Добавление прокси</h2>
+
+      <label class="paste-label" for="proxyInput">Прокси</label>
+      <div class="paste-field">
+        <input
+          id="proxyInput"
+          type="text"
+          placeholder="http://user:pass@ip:port"
+          spellcheck="false"
+          autocomplete="off"
+        />
+        <p class="field-hint">Поддерживаются HTTP, HTTPS и SOCKS5</p>
+        <button type="button" class="paste-chip" id="pasteBtn">Вставить из буфера</button>
+      </div>
+
+      <div class="scope-zone">
+        <label class="scope-check">
+          <input type="checkbox" id="sitesOnlyCheck">
+          <span>Использовать только для выбранных сайтов</span>
+        </label>
+        <div class="sites-block hidden" id="sitesBlock">
+          <input
+            type="text"
+            id="sitesInput"
+            class="sites-input"
+            placeholder="youtube.com, vk.com, *.reddit.com"
+            spellcheck="false"
+          />
+          <p class="field-hint">Домены можно вводить через запятую или с новой строки</p>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-primary" id="addBtn">+ Добавить прокси</button>
+        <button type="button" class="btn-cancel hidden" id="cancelEditBtn">Отмена</button>
+      </div>
+      <button type="button" class="link-secondary" id="testBtn">Проверить без добавления</button>
+    </section>
+
+    <section class="stats hidden" id="resultsSection">
+      <div class="stat">
+        <span>IP</span>
+        <b id="resultIp">—</b>
+      </div>
+      <div class="stat">
+        <span>Страна</span>
+        <b id="resultGeo">—</b>
+      </div>
+      <div class="stat">
+        <span>Пинг</span>
+        <b id="resultPing">—</b>
+      </div>
+      <div class="stat">
+        <span>Статус</span>
+        <b id="resultStatus">—</b>
+      </div>
+    </section>
+
+    <section class="vault">
+      <div class="vault-head">
+        <h2>Мои прокси</h2>
+        <button type="button" class="link-btn" id="clearListBtn">очистить</button>
+      </div>
+      <ul class="vault-list" id="proxyList"></ul>
+    </section>
+
+    <details class="settings-panel">
+      <summary>Настройки</summary>
+      <div class="settings-body">
+        <button type="button" class="settings-btn" id="importBtn">Импортировать список</button>
+        <button type="button" class="settings-btn" id="exportBtn">Экспортировать список</button>
+        <input type="file" id="importFile" accept=".json,application/json" class="hidden">
+      </div>
+    </details>
+  </div>
+
+  <div class="modal hidden" id="confirmModal">
+    <div class="modal-box">
+      <h3>Удалить все прокси?</h3>
+      <p>Это действие нельзя отменить.</p>
+      <div class="modal-actions">
+        <button type="button" class="modal-btn" id="confirmCancelBtn">Отмена</button>
+        <button type="button" class="modal-btn danger" id="confirmOkBtn">Удалить всё</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
